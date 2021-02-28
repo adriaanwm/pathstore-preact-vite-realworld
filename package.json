@@ -1,0 +1,19 @@
+{
+  "name": "vite-pathstore-realworld",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@adriaanwm/pathstore": "^1.0.6",
+    "marked": "^2.0.0",
+    "preact": "^10.5.9",
+    "ramda": "^0.27.1"
+  },
+  "devDependencies": {
+    "@prefresh/vite": "^2.0.0",
+    "vite": "^2.0.1"
+  }
+}
