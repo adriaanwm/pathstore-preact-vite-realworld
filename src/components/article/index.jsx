@@ -11,7 +11,6 @@ export const Article = () => {
   const [me] = store.useRequest(token && url('api.me'))
   const [article] = store.useRequest(url('api.article', {args: {slug}}))
   const [comments] = store.useRequest(url('api.articleComments', {args: {slug}}))
-  const canModify = false
   if (!article || !comments) return 'Loading ...'
   return (
     <div className='article-page'>
