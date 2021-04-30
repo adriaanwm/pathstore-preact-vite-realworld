@@ -9,14 +9,14 @@ const Comment = ({comment}) =>
     <div className='card-footer'>
       <Link
         name='profile'
-        args={{username: `@${comment.author.username}`}}
+        args={{username: comment.author.username}}
         className='comment-author'>
         <img src={comment.author.image} className='comment-author-img' alt={comment.author.username} />
       </Link>
       &nbsp;
       <Link
         name='profile'
-        args={{username: `@${comment.author.username}`}}
+        args={{username: comment.author.username}}
         className='comment-author'>
         {comment.author.username}
       </Link>

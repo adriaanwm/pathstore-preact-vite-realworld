@@ -50,7 +50,7 @@ export const Header = ({}) => {
             <li className='nav-item'>
               <ActiveLink
                 name='profile'
-                args={{username: `@${me.username}`}}
+                args={{username: me.username}}
                 className='nav-link'>
                 <img src={me.image} className='user-pic' alt={me.username} />
                 {me.username}

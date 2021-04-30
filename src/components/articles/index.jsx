@@ -18,12 +18,12 @@ const ArticlePreview = ({article, updateArticle, isAuthenticated}) => {
   return (
     <div className='article-preview'>
       <div className='article-meta'>
-        <Link name='profile' args={{username: `@${author.username}`}} >
+        <Link name='profile' args={{username: author.username}} >
           <img src={author.image} alt={author.username} />
         </Link>
 
         <div className='info'>
-          <Link className='author' name='profile' args={{username: `@${author.username}`}}>
+          <Link className='author' name='profile' args={{username: author.username}}>
             {author.username}
           </Link>
           <span className='date'>

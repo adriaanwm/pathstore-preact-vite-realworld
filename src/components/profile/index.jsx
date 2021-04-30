@@ -10,12 +10,11 @@ export const Profile = () => {
   const [me] = store.useRequest(token ? url('api.me') : null)
   const [routeDef] = store.use(['route', 'definition'])
   const isFavorites = routeDef.includes('/favorites')
-  const [usernameWithAt] = store.use(['route', 'args', 'username'])
-  const username = usernameWithAt.slice(1)
+  const [username] = store.use(['route', 'args', 'username'])
   const [profile] = store.useRequest(url('api.profile', {args: {username}}))
   useEffect(() => {
     store.set(
-      ['articlesUrl', usernameWithAt], 
+      ['articlesUrl', username], 
       isFavorites
       ? {name: 'api.articles', queries: {limit: 5, offset: 0, favorited: username}}
       : {name: 'api.articles', queries: {limit: 5, offset: 0, author: username}}
@@ -64,7 +63,7 @@ export const Profile = () => {
                   <Link
                     className={`nav-link ${!isFavorites ? 'active' : ''}`}
                     name={'profile'}
-                    args={{username: `@${profile.username}`}} >
+                    args={{username: profile.username}} >
                     My Articles
                   </Link>
                 </li>
@@ -73,14 +72,14 @@ export const Profile = () => {
                   <Link
                     className={`nav-link ${isFavorites ? 'active' : ''}`}
                     name='profileFavorites'
-                    args={{username: `@${profile.username}`}} >
+                    args={{username: profile.username}} >
                     Favorited Articles
                   </Link>
                 </li>
               </ul>
             </div>
 
-            <Articles namespace={usernameWithAt} />
+            <Articles namespace={username} />
 
           </div>
 
