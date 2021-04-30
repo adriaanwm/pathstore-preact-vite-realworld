@@ -64,7 +64,10 @@ const useRequestConduit = store => (url, { isAuthed = true, ...options }) => {
   const [result, { set, ...rest }] = useRequestDefault(store)(url,
     mergeDeepLeft(
       options,
-      (isAuthed && token && { fetchOptions: { headers: { Authorization: `Token ${token}` } } })
+      ((isAuthed && token)
+        ? { fetchOptions: { headers: { Authorization: `Token ${token}` } } }
+        : {}
+      )
     )
   )
   return [
