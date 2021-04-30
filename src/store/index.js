@@ -1,5 +1,5 @@
 import {useEffect, useState, useRef} from 'preact/hooks'
-import {createStore} from '@adriaanwm/pathstore'
+import {createStore} from 'pathstore-react'
 import {useRequest} from '~/utils/useRequest'
 import {createInit} from '~/store/init'
 import {withPath} from '~/store/with'
